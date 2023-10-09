@@ -10,6 +10,6 @@ import requests
 
 link = "https://servicodados.ibge.gov.br/api/v3/agregados/2259/periodos/201601/variaveis/1076?localidades=N7[3501]"
 
-requisicao = requests.get(link)
+requisicao = requests.get(link,verify=False)
 
-print(requisicao.json)()
+print(requisicao.json())

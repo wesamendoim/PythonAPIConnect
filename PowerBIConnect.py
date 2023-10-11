@@ -1,5 +1,4 @@
 import pandas as pd 
-import matplotlib.pyplot as pwBI
 
 df = pd.DataFrame ( {
     'Fname':['Harry','Sally','Paul','Abe','June','Mike','Tom'], 
@@ -12,5 +11,3 @@ df = pd.DataFrame ( {
 })
 
 print(df)
-
-pwBI.show()

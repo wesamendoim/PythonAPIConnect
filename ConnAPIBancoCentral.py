@@ -6,17 +6,18 @@
 
 # API BANCO CENTRAL "https://olinda.bcb.gov.br/olinda/servico/Informes_PostosDeAtendimento/versao/v1/odata/PostosAtendimento?$top=100&$format=json&$select=Cnpj,NomeIf,Segmento,NomePosto,TipoPosto,Endereco,Numero,Complemento,Bairro,Cep,MunicipioIbge,Municipio,UF,DDD,Telefone,CnpjAssist,NomeAssist,Posicao"
 
-import  pprint
 import requests
 import pandas as pd
 
-link = "https://olinda.bcb.gov.br/olinda/servico/Informes_PostosDeAtendimento/versao/v1/odata/PostosAtendimento?$top=100&$format=json&$select=Cnpj,NomeIf,Segmento,NomePosto,TipoPosto,Endereco,Numero,Complemento,Bairro,Cep,MunicipioIbge,Municipio,UF,DDD,Telefone,CnpjAssist,NomeAssist,Posicao"
+def retorno_Json(*args):
 
-requisicao = requests.get(link, verify=False)
+    link = "https://olinda.bcb.gov.br/olinda/servico/Informes_PostosDeAtendimento/versao/v1/odata/PostosAtendimento?$top=100&$format=json&$select=Cnpj,NomeIf,Segmento,NomePosto,TipoPosto,Endereco,Numero,Complemento,Bairro,Cep,MunicipioIbge,Municipio,UF,DDD,Telefone,CnpjAssist,NomeAssist,Posicao"
 
-jsLista = requisicao.json()
+    requisicao = requests.get(link, verify=False)
 
-strDataFrame = pd.DataFrame(jsLista['value'])
+    print(requisicao.status_code.numerator)
 
-print(strDataFrame)
-
+    if(requisicao.status_code.numerator == 200):
+        return requisicao.json()
+    else:
+        return 'Conexao falha com a API'

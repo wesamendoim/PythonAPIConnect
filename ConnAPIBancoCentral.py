@@ -4,21 +4,21 @@
 
 # https://servicodados.ibge.gov.br/api/v3/agregados/2259/periodos/201601/variaveis/1076?localidades=N7[3501]
 
-# API BANCO CENTRAL "https://olinda.bcb.gov.br/olinda/servico/Informes_PostosDeAtendimento/versao/v1/odata/PostosAtendimento?$top=100&$format=json&$select=Cnpj,NomeIf,Segmento,NomePosto,TipoPosto,Endereco,Numero,Complemento,Bairro,Cep,MunicipioIbge,Municipio,UF,DDD,Telefone,CnpjAssist,NomeAssist,Posicao"
-
 import requests
 import pandas as pd
 
-link = "https://olinda.bcb.gov.br/olinda/servico/Informes_PostosDeAtendimento/versao/v1/odata/PostosAtendimento?$top=100&$format=json&$select=Cnpj,NomeIf,Segmento,NomePosto,TipoPosto,Endereco,Numero,Complemento,Bairro,Cep,MunicipioIbge,Municipio,UF,DDD,Telefone,CnpjAssist,NomeAssist,Posicao"
+#link = "https://olinda.bcb.gov.br/olinda/servico/Informes_PostosDeAtendimento/versao/v1/odata/PostosAtendimento?$top=100&$format=json&$select=Cnpj,NomeIf,Segmento,NomePosto,TipoPosto,Endereco,Numero,Complemento,Bairro,Cep,MunicipioIbge,Municipio,UF,DDD,Telefone,CnpjAssist,NomeAssist,Posicao"
+
 def retorno_Json(*args):
 
+link = "https://servicodados.ibge.gov.br/api/v3/agregados/2259/periodos/201601/variaveis/1076?localidades=N7[3501]"
 
-    requisicao = requests.get(link, verify=False)
+requisicao = requests.get(link, verify=False)
 
-    if(requisicao.status_code.numerator == 200):
-        return requisicao.json()
-    else:
-        raise ValueError('Conexão falhou')
+if(requisicao.status_code.numerator == 200):
+    return requisicao.json()
+else:
+    raise ValueError('Conexão falhou')
 
     #pd.DataFrame(jsLista['value']).to_excel(excel_writer='strDataFrame.xlsx', sheet_name='DataFrame')
     #pd.DataFrame(jsLista['value']).to_excel(excel_writer='strDataFrame.xlsx', sheet_name='DataFrame')

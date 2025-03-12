@@ -29,6 +29,24 @@ class TBL_POSTO_ATENDIMENTO(Base):
     NOMEASSIST = Column("NOMEASSIST", String(100))
     POSICAO = Column("POSICAO", String(100))
 
-    def __init__(self, CNPJ,NOMEIF):
+    def __init__(self, CNPJ,NOMEIF, SEGMENTO, NOMEPOSTO, TIPOPOSTO, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CEP, MUNICIPIOIBGE, MUNICIPIO, UF, DDD, TELEFONE, CNPJASSIST,NOMEASSIST,POSICAO):
+        self.CNPJ = CNPJ
+        self.NOMEIF = NOMEIF
+        self.SEGMENTO = SEGMENTO
+        self.NOMEPOSTO = NOMEPOSTO
+        self.TIPOPOSTO = TIPOPOSTO
+        self.ENDERECO = ENDERECO
+        self.NUMERO = NUMERO
+        self.COMPLEMENTO = COMPLEMENTO
+        self.BAIRRO = BAIRRO
+        self.CEP = CEP
+        self.MUNICIPIOIBGE = MUNICIPIOIBGE
+        self.MUNICIPIO = MUNICIPIO
+        self.UF = UF
+        self.DDD = DDD
+        self.TELEFONE = TELEFONE
+        self.CNPJASSIST = CNPJASSIST
+        self.NOMEASSIST = NOMEASSIST
+        self.POSICAO = POSICAO
 
 Base.metadata.create_all(bind=db)

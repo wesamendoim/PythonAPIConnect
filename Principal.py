@@ -2,6 +2,7 @@
 
 import ConnAPIBancoCentral
 import ConexaoBancoDeDados
+import Criacao_Banco
 import pprint
 import pandas as pd
 from pandas.io import sql
@@ -11,7 +12,7 @@ import pyodbc
 try:
     strRetorno = ConnAPIBancoCentral.retorno_Json()
     pprint.pprint(strRetorno)
-    conexao = ConexaoBancoDeDados.conexaoBanco()
+    conexao = Criacao_Banco()
     strDataFrame = pd.read_excel("strDataFrame.xlsx")
 
     #engine = db.create_engine( 'mssql+pyodbc://@' + server_name + '/' + database_name + '?trusted_connection=yes&driver=' + driver, fast_executemany=True)

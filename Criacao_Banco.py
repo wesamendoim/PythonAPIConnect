@@ -10,7 +10,7 @@ Base = declarative_base()
 
 class TBL_POSTO_ATENDIMENTO(Base):
     __tablename__ = 'TBL_POSTO_ATENDIMENTO'
-    CNPJ = Column("CNPJ", primary_key=True)
+    CNPJ = Column("CNPJ", String,primary_key=True)
     NOMEIF = Column("NOMEIF", String)
     SEGMENTO = Column("SEGMENTO", String(100))
     NOMEPOSTO = Column("NOMEPOSTO", String(100))

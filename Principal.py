@@ -44,8 +44,7 @@ try:
     #Confirmando as inserções no banco de dados
     Criacao_Banco.session.commit()
 
-    
-    
+
 
 except Exception as Ex:
     print(Ex)

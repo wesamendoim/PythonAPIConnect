@@ -9,7 +9,7 @@ from pandas.io import sql
 import sqlalchemy as db
 import pyodbc
 import openpyxl
-
+import Dashborad
 try:
     strRetorno = ConnAPIBancoCentral.retorno_Json()
     #strDataFrame = pd.read_excel("strDataFrame.xlsx")
@@ -44,7 +44,8 @@ try:
     #Confirmando as inserções no banco de dados
     Criacao_Banco.session.commit()
 
-
+    #Chamando a função do dashboard
+    Dashborad.Dashboard()
 
 except Exception as Ex:
     print(Ex)

@@ -10,6 +10,8 @@ import sqlalchemy as db
 import pyodbc
 import openpyxl
 import Dashborad
+import os
+
 try:
     strRetorno = ConnAPIBancoCentral.retorno_Json()
     #strDataFrame = pd.read_excel("strDataFrame.xlsx")
@@ -44,8 +46,8 @@ try:
     #Confirmando as inserções no banco de dados
     Criacao_Banco.session.commit()
 
-    #Chamando a função do dashboard
-    Dashborad.Dashboard()
+    # Ao final, abre o dashboard Streamlit no navegador
+    os.system("start cmd /c streamlit run Dashborad.py")
 
 except Exception as Ex:
     print(Ex)

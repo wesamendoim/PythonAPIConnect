@@ -48,3 +48,6 @@ def Dashboard():
     st.plotly_chart(fig)
 
     st.info("Você pode expandir este dashboard para usar outros algoritmos de IA, como previsão, classificação, análise de sentimentos, entre outros.")
+
+
+Dashboard()

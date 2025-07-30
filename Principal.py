@@ -30,6 +30,7 @@ try:
     strDataFrame = pd.read_excel("strDataFrame.xlsx")
 
     for index, row in strDataFrame.iterrows():
+            
             #Verificar se o CNPJ já existe na tabela
             existe = Criacao_Banco.session.query(Criacao_Banco.TBL_POSTO_ATENDIMENTO).filter_by(CNPJ=row['Cnpj']).first()
             print(existe)
@@ -40,11 +41,13 @@ try:
                     print(posto_atendimento)
                     Criacao_Banco.session.add(posto_atendimento)
 
+    #Confirmando as inserções no banco de dados
     Criacao_Banco.session.commit()
+
+    
     
 
 except Exception as Ex:
     print(Ex)
 finally:
     Criacao_Banco.session.close()
-    #print(Ex.args.index())

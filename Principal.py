@@ -34,7 +34,7 @@ try:
     for index, row in strDataFrame.iterrows():
             #Verificar se o CNPJ já existe na tabela
             existe = Criacao_Banco.session.query(Criacao_Banco.TBL_POSTO_ATENDIMENTO).filter_by(CNPJ=row['Cnpj']).first()
-            print(existe.CNPJ)
+            #print(existe.CNPJ)
 
             # Se o CNPJ não existir, insira os dados
             if not existe:

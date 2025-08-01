@@ -63,8 +63,8 @@ def Dashboard():
     segmento_counts = df.groupby('CNPJ').size().reset_index(name='TipoPosto')
     segmento_counts = segmento_counts[segmento_counts['CNPJ'].notnull() & (segmento_counts['CNPJ'] != '')]
     st.dataframe(segmento_counts)
-    fig = px.area(segmento_counts, x='CNPJ', y='TipoPosto', 
-                title='Quantidade de Postos por CNPJ')
+    fig = px.pie(segmento_counts, names='CNPJ' , values='TipoPosto',
+                title='Distribuição de Postos por CNPJ')
     st.plotly_chart(fig)
 
 Dashboard()
